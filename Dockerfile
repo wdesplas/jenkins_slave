@@ -4,6 +4,6 @@ USER root
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends --no-upgrade \
-    dnsutils jq
+    dnsutils jq ruby-full
 
 user jenkins
