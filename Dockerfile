@@ -3,7 +3,8 @@ FROM jenkinsci/jnlp-slave:latest
 USER root
 
 #Install libraries and and tools
-RUN apt-get install software-properties-common && \
+RUN apt-get update && \
+    apt-get install software-properties-common && \
     apt-get update && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64 && \
     add-apt-repository ppa:rmescandon/yq && \
