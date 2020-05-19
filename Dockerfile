@@ -5,12 +5,16 @@ USER root
 #Install libraries and and tools
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64 && \
     add-apt-repository ppa:rmescandon/yq && \
+    ## CF Client
+    wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | apt-key add - && \
+    echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list && \
     apt update && \
     apt install --no-install-recommends --no-upgrade -y \
-          dnsutils jq ruby-full ruby-build libghc-yaml-dev yq zip unzip && \
-    gem install cf-uaac && \
-
+          dnsutils jq ruby-full ruby-build libghc-yaml-dev yq zip unzip cf-cli && \
+    
     #Installation of kubernetes, helm and terraform
+    ## UAAC
+    gem install cf-uaac && \
     ## kubectl installation
     wget https://storage.googleapis.com/kubernetes-release/release/v1.13.10/bin/linux/amd64/kubectl -O /bin/kubectl && \
     chmod +x /bin/kubectl && \
@@ -22,6 +26,6 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64 && \
     ## Helm installation
     wget -qO- https://get.helm.sh/helm-v2.16.3-linux-amd64.tar.gz | tar xvz -C /bin --wildcards --no-anchored helm --strip-components 1 && \
     chmod +x /bin/helm && \
-    rm -fr helm-v2.16.3-linux-amd64.tar.gz    
-    
+    rm -rf helm-v2.16.3-linux-amd64.tar.gz && \
+     
 USER jenkins
