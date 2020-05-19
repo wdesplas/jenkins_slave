@@ -24,4 +24,4 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64 && \
     chmod +x /bin/helm && \
     rm -fr helm-v2.16.3-linux-amd64.tar.gz    
     
-user jenkins
+USER jenkins
