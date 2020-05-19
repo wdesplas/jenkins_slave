@@ -3,8 +3,11 @@ FROM jenkinsci/jnlp-slave:latest
 USER root
 
 #Install libraries and and tools
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64 && \
+RUN apt-get install software-properties-common && \
+    apt-get update && \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64 && \
     add-apt-repository ppa:rmescandon/yq && \
+    apt-get update && \
     ## CF Client
     wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | apt-key add - && \
     echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list && \
