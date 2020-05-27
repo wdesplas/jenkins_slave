@@ -28,6 +28,8 @@ RUN apt-get update && \
     ## Helm installation
     wget -qO- https://get.helm.sh/helm-v2.16.3-linux-amd64.tar.gz | tar xvz -C /bin --wildcards --no-anchored helm --strip-components 1 && \
     chmod +x /bin/helm && \
-    rm -rf helm-v2.16.3-linux-amd64.tar.gz
+    rm -rf helm-v2.16.3-linux-amd64.tar.gz &&\
+    ## Installation of jenkins cli
+    pip3 install jenkins-cli
      
 USER jenkins
