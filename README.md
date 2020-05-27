@@ -13,3 +13,4 @@ This images used the latest version of jenkinsci/jnlp-slave and add the followin
 * kubectl
 * helm
 * terraform
+* jenkins-cli
