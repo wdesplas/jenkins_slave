@@ -14,3 +14,4 @@ This images used the latest version of jenkinsci/jnlp-slave and add the followin
 * helm
 * terraform
 * jenkins-cli
+* mc

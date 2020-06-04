@@ -30,6 +30,10 @@ RUN apt-get update && \
     chmod +x /bin/helm && \
     rm -rf helm-v2.16.3-linux-amd64.tar.gz &&\
     ## Installation of jenkins cli
-    pip3 install jenkins-cli
+    pip3 install jenkins-cli && \
+
+    ## Installation of mc
+    curl -sSL https://dl.min.io/client/mc/release/linux-amd64/archive/mc -o /bin/mc && \
+    chmod +x /bin/mc
      
 USER jenkins
