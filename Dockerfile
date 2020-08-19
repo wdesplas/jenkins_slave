@@ -48,6 +48,14 @@ RUN apt-get update && \
 
     ## Installation of mc
     curl -sSL https://dl.min.io/client/mc/release/linux-amd64/archive/mc -o /bin/mc && \
-    chmod +x /bin/mc
+    chmod +x /bin/mc && \
+    
+    ## Installation of python3
+    apt-get install -y software-properties-common && \
+    add-apt-repository -y ppa:deadsnakes/ppa && \
+    apt-get update -y && \
+    apt-get install -y install python3.8 && \
+    ## Installation of pip3
+    apt-get install -y python3-pip
      
 USER jenkins
