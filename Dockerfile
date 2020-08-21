@@ -49,12 +49,5 @@ RUN apt-get update && \
     ## Installation of mc
     curl -sSL https://dl.min.io/client/mc/release/linux-amd64/archive/mc -o /bin/mc && \
     chmod +x /bin/mc && \
-    
-    ## Installation of python3
-    apt-get install -y install python3 && \
-    ## Installation of pip3
-    apt-get install -y python3-pip && \
-    
-    python3 --version
      
 USER jenkins
