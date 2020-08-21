@@ -51,11 +51,10 @@ RUN apt-get update && \
     chmod +x /bin/mc && \
     
     ## Installation of python3
-    apt-get install -y software-properties-common && \
-    add-apt-repository -y ppa:deadsnakes/ppa && \
-    apt-get update -y && \
-    apt-get install -y install python3.8 && \
+    apt-get install -y install python3 && \
     ## Installation of pip3
-    apt-get install -y python3-pip
+    apt-get install -y python3-pip && \
+    
+    python3 --version
      
 USER jenkins
